@@ -6,10 +6,11 @@
   <title>Student Supervision | Meisam Jamshidi Seikavandi</title>
   <meta name="description" content="BSc and MSc thesis ideas in multimodal affective computing, group interaction, cognitive modelling, robust multimodal learning, and multimodal language models.">
   <meta name="author" content="Meisam Jamshidi Seikavandi">
-  <meta name="theme-color" content="#0b2558">
+  <meta name="theme-color" content="#0b2f3a">
   <link rel="canonical" href="https://meisamjam.github.io/supervision.html">
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
   <link rel="manifest" href="site.webmanifest">
+  <script>try{const t=localStorage.getItem("theme");if(t)document.documentElement.dataset.theme=t}catch{}</script>
   <link rel="stylesheet" href="assets/css/styles.css">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Student Supervision | Meisam Jamshidi Seikavandi">
@@ -101,7 +102,10 @@
         <div class="field"><label for="supervisionHosting">Hosting</label><select id="supervisionHosting"><option value="">All hosting</option><option value="ITU">ITU</option><option value="ITU–GN">ITU–GN</option></select></div>
         <div class="field"><label for="supervisionDataset">Dataset</label><select id="supervisionDataset"><option value="">All datasets</option><option value="AFFEC">AFFEC</option><option value="GroupAffect-4">GroupAffect-4</option><option value="ongoing larger-scale capture">ongoing larger-scale capture</option></select></div>
       </div>
-      <div class="results-meta"><span id="supervisionResults" aria-live="polite"></span><span>Open a topic to see scope, data, and references.</span></div>
+      <div class="results-meta">
+        <span id="supervisionResults" aria-live="polite"></span>
+        <div class="results-actions"><span class="results-hint">Open a topic to see scope, data, and references.</span><button class="filter-clear" id="supervisionClear" type="button" hidden>Clear filters</button></div>
+      </div>
       <div class="supervision-list" id="supervisionList"></div>
     </div>
   </section>

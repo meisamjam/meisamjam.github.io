@@ -28,6 +28,8 @@
   function setTheme(theme) {
     document.documentElement.dataset.theme = theme;
     try { localStorage.setItem("theme", theme); } catch {}
+    const themeMeta = $('meta[name="theme-color"]');
+    if (themeMeta) themeMeta.content = theme === "dark" ? "#0b1518" : "#0b2f3a";
     const toggle = $("#themeToggle");
     if (toggle) {
       toggle.textContent = theme === "dark" ? "☀" : "◐";
@@ -53,27 +55,34 @@
     });
     const menuButton = $("#menuToggle");
     const links = $("#navLinks");
+    const closeMenu = (restoreFocus = false) => {
+      links?.classList.remove("open");
+      document.body.classList.remove("menu-open");
+      if (!menuButton) return;
+      menuButton.setAttribute("aria-expanded", "false");
+      menuButton.setAttribute("aria-label", "Open navigation");
+      menuButton.textContent = "☰";
+      if (restoreFocus) menuButton.focus();
+    };
     menuButton?.addEventListener("click", () => {
       const open = links?.classList.toggle("open");
+      document.body.classList.toggle("menu-open", Boolean(open));
       menuButton.setAttribute("aria-expanded", String(Boolean(open)));
       menuButton.setAttribute("aria-label", open ? "Close navigation" : "Open navigation");
       menuButton.textContent = open ? "×" : "☰";
     });
-    $$("#navLinks a").forEach(link => link.addEventListener("click", () => {
-      links?.classList.remove("open");
-      if (menuButton) {
-        menuButton.setAttribute("aria-expanded", "false");
-        menuButton.setAttribute("aria-label", "Open navigation");
-        menuButton.textContent = "☰";
-      }
-    }));
+    $$("#navLinks a").forEach(link => link.addEventListener("click", () => closeMenu()));
+    document.addEventListener("click", event => {
+      if (!links?.classList.contains("open")) return;
+      if (links.contains(event.target) || menuButton?.contains(event.target)) return;
+      closeMenu();
+    });
     document.addEventListener("keydown", event => {
       if (event.key !== "Escape" || !links?.classList.contains("open")) return;
-      links.classList.remove("open");
-      menuButton?.setAttribute("aria-expanded", "false");
-      menuButton?.setAttribute("aria-label", "Open navigation");
-      if (menuButton) menuButton.textContent = "☰";
-      menuButton?.focus();
+      closeMenu(true);
+    });
+    window.addEventListener("resize", () => {
+      if (window.innerWidth > 1120 && links?.classList.contains("open")) closeMenu();
     });
   }
 
@@ -86,6 +95,11 @@
     window.addEventListener("scroll", updateBack, { passive: true });
     updateBack();
     back?.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
+
+    const portrait = $("#profilePortrait");
+    const showPortraitFallback = () => portrait?.classList.add("is-missing");
+    portrait?.addEventListener("error", showPortraitFallback);
+    if (portrait?.complete && !portrait.naturalWidth) showPortraitFallback();
 
     $("#copyEmail")?.addEventListener("click", async (event) => {
       event.preventDefault();
@@ -125,7 +139,9 @@
 
   function renderHome() {
     $$('[data-research-grid]').forEach(grid => {
-      grid.innerHTML = data.researchInterests.map(item => `
+      const limit = Number.parseInt(grid.dataset.limit || "", 10);
+      const interests = Number.isFinite(limit) ? data.researchInterests.slice(0, limit) : data.researchInterests;
+      grid.innerHTML = interests.map(item => `
         <article class="card interest-card">
           <div class="card-body">
             <div class="interest-icon" aria-hidden="true">${escapeHtml(item.icon)}</div>
@@ -167,6 +183,7 @@
     const yearSelect = $("#publicationYear");
     const topicSelect = $("#publicationTopic");
     const count = $("#publicationResults");
+    const clear = $("#publicationClear");
 
     const types = [...new Set(data.publications.map(pub => pub.type))].sort();
     const years = [...new Set(data.publications.map(pub => pub.year))].sort((a, b) => b - a);
@@ -175,6 +192,12 @@
     typeSelect.innerHTML += types.map(value => `<option value="${escapeHtml(value)}">${escapeHtml(value)}</option>`).join("");
     yearSelect.innerHTML += years.map(value => `<option value="${value}">${value}</option>`).join("");
     topicSelect.innerHTML += topics.map(value => `<option value="${escapeHtml(value)}">${escapeHtml(value)}</option>`).join("");
+
+    const initialParams = new URLSearchParams(location.search);
+    search.value = initialParams.get("q") || "";
+    typeSelect.value = initialParams.get("type") || "";
+    yearSelect.value = initialParams.get("year") || "";
+    topicSelect.value = initialParams.get("topic") || "";
 
     function render() {
       const query = normalize(search.value);
@@ -189,14 +212,32 @@
         .sort((a, b) => b.year - a.year || a.title.localeCompare(b.title));
 
       count.textContent = `${filtered.length} publication${filtered.length === 1 ? "" : "s"}`;
+      const hasFilters = Boolean(query || type || year || topic);
+      if (clear) clear.hidden = !hasFilters;
       list.innerHTML = filtered.length
         ? filtered.map(pub => publicationMarkup(pub)).join("")
         : `<div class="empty-state">No publications match the selected filters.</div>`;
+
+      const params = new URLSearchParams();
+      if (search.value.trim()) params.set("q", search.value.trim());
+      if (type) params.set("type", type);
+      if (year) params.set("year", year);
+      if (topic) params.set("topic", topic);
+      const nextUrl = `${location.pathname}${params.size ? `?${params}` : ""}${location.hash}`;
+      history.replaceState(null, "", nextUrl);
     }
 
     [search, typeSelect, yearSelect, topicSelect].forEach(control =>
       control.addEventListener(control === search ? "input" : "change", render)
     );
+    clear?.addEventListener("click", () => {
+      search.value = "";
+      typeSelect.value = "";
+      yearSelect.value = "";
+      topicSelect.value = "";
+      render();
+      search.focus();
+    });
     render();
   }
 
@@ -305,9 +346,17 @@
     const hosting = $("#supervisionHosting");
     const dataset = $("#supervisionDataset");
     const count = $("#supervisionResults");
+    const clear = $("#supervisionClear");
 
     const themes = [...new Set(data.supervision.map(item => item.theme))].sort();
     theme.innerHTML += themes.map(value => `<option value="${escapeHtml(value)}">${escapeHtml(themeLabel(value))}</option>`).join("");
+
+    const initialParams = new URLSearchParams(location.search);
+    search.value = initialParams.get("q") || "";
+    degree.value = initialParams.get("degree") || "";
+    theme.value = initialParams.get("theme") || "";
+    hosting.value = initialParams.get("hosting") || "";
+    dataset.value = initialParams.get("dataset") || "";
 
     function render() {
       const query = normalize(search.value);
@@ -323,14 +372,34 @@
         .filter(item => !datasetValue || datasetGroups(item.data).includes(datasetValue));
 
       count.textContent = `${filtered.length} idea${filtered.length === 1 ? "" : "s"}`;
+      const hasFilters = Boolean(query || degreeValue || themeValue || hostingValue || datasetValue);
+      if (clear) clear.hidden = !hasFilters;
       list.innerHTML = filtered.length
         ? filtered.map(thesisMarkup).join("")
         : `<div class="empty-state">No thesis ideas match the selected filters.</div>`;
+
+      const params = new URLSearchParams();
+      if (search.value.trim()) params.set("q", search.value.trim());
+      if (degreeValue) params.set("degree", degreeValue);
+      if (themeValue) params.set("theme", themeValue);
+      if (hostingValue) params.set("hosting", hostingValue);
+      if (datasetValue) params.set("dataset", datasetValue);
+      const nextUrl = `${location.pathname}${params.size ? `?${params}` : ""}${location.hash}`;
+      history.replaceState(null, "", nextUrl);
     }
 
     [search, degree, theme, hosting, dataset].forEach(control =>
       control.addEventListener(control === search ? "input" : "change", render)
     );
+    clear?.addEventListener("click", () => {
+      search.value = "";
+      degree.value = "";
+      theme.value = "";
+      hosting.value = "";
+      dataset.value = "";
+      render();
+      search.focus();
+    });
     render();
 
     $("#referenceList").innerHTML = data.references.map(referenceMarkup).join("");

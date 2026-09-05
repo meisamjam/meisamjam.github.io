@@ -59,6 +59,12 @@ python -m http.server 8000
 
 Then open `http://localhost:8000`.
 
+Before publishing, run the dependency-free site audit:
+
+```bash
+python scripts/check_site.py
+```
+
 ## License
 
 Website code is provided under the MIT License. Publication text, linked papers, datasets, and third-party materials remain under their respective licenses.

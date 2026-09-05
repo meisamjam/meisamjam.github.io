@@ -140,7 +140,7 @@ window.SITE_DATA = {
       "id": "windows-sequences-2026",
       "year": 2026,
       "type": "Workshop paper",
-      "featured": false,
+      "featured": true,
       "title": "From Windows to Sequences: Modality-Aware Temporal Learning for Wearable Affect Sensing",
       "authors": "Meisam Jamshidi Seikavandi et al.",
       "venue": "WearableAI Workshop at ECCV 2026",

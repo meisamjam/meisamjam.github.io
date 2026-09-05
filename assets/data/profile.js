@@ -14,6 +14,7 @@ window.SITE_PROFILE = {
     "linkedin": "https://www.linkedin.com/in/meisam-jamshidi-seikavandi/",
     "orcid": "https://orcid.org/0000-0002-1271-2481",
     "scholar": "https://scholar.google.com/citations?hl=en&user=Su_d2HIAAAAJ",
+    "dblp": "https://dblp.org/pid/277/0452",
     "itu": "https://pure.itu.dk/en/persons/meisam-jamshidi-seikavandi/"
   }
 };

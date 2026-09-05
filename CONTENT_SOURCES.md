@@ -1,13 +1,15 @@
 # Content sources and public-information boundary
 
-Last checked: 24 August 2026.
+Last checked: 5 September 2026.
 
 ## Profile
 
 - IT University of Copenhagen researcher profile: https://pure.itu.dk/en/persons/meisam-jamshidi-seikavandi/
 - ORCID: https://orcid.org/0000-0002-1271-2481
 - Google Scholar: https://scholar.google.com/citations?hl=en&user=Su_d2HIAAAAJ
+- DBLP: https://dblp.org/pid/277/0452
 - GitHub: https://github.com/meisamjam
+- Portrait: public GitHub profile image, stored locally for reliable loading
 - LinkedIn: https://www.linkedin.com/in/meisam-jamshidi-seikavandi/
 - ITU brAIn lab contacts: https://brainlab.itu.dk/contacts/
 
@@ -25,6 +27,8 @@ Key public resources:
 - GroupAffect-4 code: https://github.com/meisamjam/GroupAffect-4
 - GroupAffect-4 devkit: https://github.com/meisamjam/groupaffect4-devkit
 - AffectAI-Capture protocol: https://arxiv.org/abs/2605.19794
+- Pseudo-Label Augmentation DOI (identifier supplied; activation pending): https://doi.org/10.1145/3776591.3837044
+- From Windows to Sequences (OpenReview): https://openreview.net/forum?id=PUUEPL4ehr
 
 ## Supervision catalogue
 

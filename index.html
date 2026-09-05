@@ -4,16 +4,17 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Meisam Jamshidi Seikavandi | Multimodal AI & Cognitive Modelling</title>
-  <meta name="description" content="Academic website of Meisam Jamshidi Seikavandi: multimodal affective computing, cognitive modelling, publications, public projects, and student supervision.">
+  <meta name="description" content="Meisam Jamshidi Seikavandi develops human-centred multimodal AI for affective computing, wearable sensing, cognitive modelling, and real-world group interaction.">
   <meta name="author" content="Meisam Jamshidi Seikavandi">
-  <meta name="theme-color" content="#0b2558">
+  <meta name="theme-color" content="#0b2f3a">
   <link rel="canonical" href="https://meisamjam.github.io/">
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
   <link rel="manifest" href="site.webmanifest">
+  <script>try{const t=localStorage.getItem("theme");if(t)document.documentElement.dataset.theme=t}catch{}</script>
   <link rel="stylesheet" href="assets/css/styles.css">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Meisam Jamshidi Seikavandi | Multimodal AI & Cognitive Modelling">
-  <meta property="og:description" content="Academic website of Meisam Jamshidi Seikavandi: multimodal affective computing, cognitive modelling, publications, public projects, and student supervision.">
+  <meta property="og:description" content="Human-centred multimodal AI for affective computing, wearable sensing, cognitive modelling, and real-world group interaction.">
   <meta property="og:url" content="https://meisamjam.github.io/">
   <meta property="og:image" content="https://meisamjam.github.io/assets/img/og-card.png">
   <meta name="twitter:card" content="summary_large_image">
@@ -35,6 +36,7 @@
     "https://orcid.org/0000-0002-1271-2481",
     "https://scholar.google.com/citations?hl=en&user=Su_d2HIAAAAJ",
     "https://pure.itu.dk/en/persons/meisam-jamshidi-seikavandi/",
+    "https://dblp.org/pid/277/0452",
     "https://www.linkedin.com/in/meisam-jamshidi-seikavandi/"
   ],
   "knowsAbout": [
@@ -70,44 +72,67 @@
 </div>
 </div></header>
 <main id="main">
-  <section class="hero">
+  <section class="hero" aria-labelledby="hero-title">
     <div class="container hero-grid">
-      <div>
-        <div class="hero-eyebrow"><span class="status-dot"></span> Human-centred multimodal AI</div>
-        <h1>Meisam <span class="middle-name">Jamshidi</span><span class="name-break text-gradient">Seikavandi</span></h1>
-        <p class="hero-role">Industrial Postdoctoral Researcher · GN Advanced Science × ITU brAIn Lab</p>
-        <p class="research-identity">Multimodal AI · Affective Computing · Cognitive Modelling · Human Interaction</p>
-        <p class="hero-copy">I study how affect, attention, personality, and group dynamics can be understood from speech, gaze, physiology, video, and behaviour—and how those signals can be modelled responsibly in real human interaction.</p>
+      <div class="hero-intro">
+        <p class="hero-name">Meisam Jamshidi Seikavandi</p>
+        <div class="hero-eyebrow"><span class="status-dot"></span> Industrial Postdoctoral Researcher · Copenhagen</div>
+        <h1 id="hero-title">Multimodal AI for <span class="text-gradient">human interaction.</span></h1>
+        <p class="hero-copy">I build scientifically grounded AI that connects speech, gaze, physiology, video, and behaviour to understand affect, attention, personality, and group dynamics in real-world interaction.</p>
         <div class="hero-actions">
-          <a class="button button-primary" href="publications.html">Explore publications <span aria-hidden="true">→</span></a>
-          <a class="button" href="supervision.html">Student projects</a>
-          <a class="button button-ghost" href="contact.html">Contact</a>
+          <a class="button button-primary" href="research.html">Explore my research <span aria-hidden="true">→</span></a>
+          <a class="button" href="publications.html">View publications</a>
+          <a class="button button-ghost" href="contact.html">Get in touch</a>
         </div>
         <div class="hero-links" aria-label="Academic profiles">
-          <a data-profile-link="scholar" href="#">Google Scholar ↗</a>
-          <a data-profile-link="orcid" href="#">ORCID ↗</a>
-          <a data-profile-link="github" href="#">GitHub ↗</a>
-          <a data-profile-link="itu" href="#">ITU Pure ↗</a>
+          <a data-profile-link="scholar" href="#">Google Scholar <span aria-hidden="true">↗</span></a>
+          <a data-profile-link="orcid" href="#">ORCID <span aria-hidden="true">↗</span></a>
+          <a data-profile-link="github" href="#">GitHub <span aria-hidden="true">↗</span></a>
+          <a data-profile-link="itu" href="#">ITU Pure <span aria-hidden="true">↗</span></a>
         </div>
       </div>
-      <div class="hero-visual" aria-label="A visual representation of multimodal research">
-        <div class="profile-orbit">
-          <div class="profile-card"><img src="https://github.com/meisamjam.png" width="420" height="420" alt="Portrait of Meisam Jamshidi Seikavandi" referrerpolicy="no-referrer"></div>
-          <span class="orbit-pill"><b>◉</b> Affect</span>
-          <span class="orbit-pill"><b>◎</b> Groups</span>
-          <span class="orbit-pill"><b>≋</b> Physiology</span>
-          <span class="orbit-pill"><b>◌</b> Gaze</span>
+      <aside class="profile-panel" aria-label="Current research profile">
+        <div class="profile-image-wrap">
+          <div class="profile-card">
+            <img id="profilePortrait" src="assets/img/meisam-jamshidi-seikavandi.jpg" width="460" height="460" alt="Portrait of Meisam Jamshidi Seikavandi" fetchpriority="high" decoding="async">
+            <span class="profile-initials" aria-hidden="true">MJS</span>
+          </div>
+          <span class="profile-status"><span class="status-dot"></span> Based in Copenhagen, Denmark</span>
         </div>
-      </div>
+        <div class="profile-summary">
+          <p class="eyebrow">Current focus</p>
+          <p>Human-centred multimodal learning for affective computing, wearable sensing, and small-group interaction.</p>
+          <dl class="profile-facts">
+            <div><dt>Industry</dt><dd>GN Advanced Science</dd></div>
+            <div><dt>Academic</dt><dd>ITU brAIn Lab</dd></div>
+          </dl>
+        </div>
+      </aside>
     </div>
   </section>
 
-  <section class="section-tight">
+  <section class="section-compact" aria-label="Research portfolio at a glance">
     <div class="container stat-strip" aria-label="Website overview">
       <div class="stat"><strong id="publicationCount">—</strong><span>selected publications</span></div>
       <div class="stat"><strong id="supervisionCount">—</strong><span>student project ideas</span></div>
-      <div class="stat"><strong id="publicProjectCount">—</strong><span>public research projects</span></div>
-      <div class="stat"><strong id="openDatasetCount">—</strong><span>open-data resources</span></div>
+      <div class="stat"><strong id="publicProjectCount">—</strong><span>public projects & tools</span></div>
+      <div class="stat"><strong id="openDatasetCount">—</strong><span>open dataset resources</span></div>
+    </div>
+  </section>
+
+  <section class="section-tight" aria-labelledby="start-heading">
+    <div class="container">
+      <div class="section-header section-header-compact">
+        <div>
+          <p class="section-kicker">Start here</p>
+          <h2 class="section-heading section-heading-small" id="start-heading">Find what you need</h2>
+        </div>
+      </div>
+      <div class="quick-links">
+        <a class="quick-link" href="research.html"><span class="quick-link-number">01</span><span><strong>Understand the research</strong><small>Questions, methods, and scientific approach</small></span><span aria-hidden="true">→</span></a>
+        <a class="quick-link" href="projects.html"><span class="quick-link-number">02</span><span><strong>Use open resources</strong><small>Datasets, code, protocols, and devkits</small></span><span aria-hidden="true">→</span></a>
+        <a class="quick-link" href="supervision.html"><span class="quick-link-number">03</span><span><strong>Find a thesis topic</strong><small>Scoped BSc and MSc project directions</small></span><span aria-hidden="true">→</span></a>
+      </div>
     </div>
   </section>
 
@@ -136,7 +161,7 @@
           <p class="section-lead">My research connects computational models with questions from cognition, emotion, social interaction, and human-centred system design.</p>
         </div>
       </div>
-      <div class="grid grid-3" id="interestGrid" data-research-grid></div>
+      <div class="grid grid-3" id="interestGrid" data-research-grid data-limit="6"></div>
       <div class="hero-actions">
         <a class="button" href="research.html">Read the research overview →</a>
       </div>
@@ -206,7 +231,7 @@
       <p class="section-lead">For academic questions, open research collaboration, or student supervision at ITU, use the contact page. Company-related collaborations remain subject to the relevant confidentiality and data-access agreements.</p>
       <div class="hero-actions">
         <a class="button button-primary" href="contact.html">Contact details</a>
-        <a class="button" data-profile-link="linkedin" href="#">LinkedIn</a>
+        <a class="button" data-profile-link="linkedin" href="#">LinkedIn <span aria-hidden="true">↗</span></a>
       </div>
     </div>
   </section>
@@ -223,6 +248,7 @@
         <a data-profile-link="github" href="#">GitHub</a>
         <a data-profile-link="scholar" href="#">Google Scholar</a>
         <a data-profile-link="orcid" href="#">ORCID</a>
+        <a data-profile-link="dblp" href="#">DBLP</a>
         <a data-profile-link="itu" href="#">ITU profile</a>
         <a data-profile-link="linkedin" href="#">LinkedIn</a>
       </div>
