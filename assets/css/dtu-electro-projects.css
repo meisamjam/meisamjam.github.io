@@ -1,0 +1,58 @@
+
+/* CogniSense Lab | DTU Electro student projects — extends the personal site theme */
+.electro-hero{position:relative;overflow:hidden;background:linear-gradient(126deg,#061a34 0%,#083452 58%,#065a6a 100%);color:#f6fdff;padding:88px 0 92px}
+.electro-hero::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 90% 25%,rgba(87,235,243,.18),transparent 43%),repeating-radial-gradient(ellipse at 85% 100%,transparent 0,transparent 36px,rgba(98,229,238,.08) 37px,transparent 39px);pointer-events:none}
+.electro-hero .container{position:relative;z-index:1}
+.electro-layout{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(310px,.8fr);gap:64px;align-items:center}
+.electro-kicker{font-size:.78rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#80e5e7;margin:0 0 18px}
+.electro-hero h1{font-size:clamp(2.55rem,5.1vw,5.3rem);letter-spacing:-.065em;line-height:1.02;max-width:860px;margin:0 0 24px;color:#fff}
+.electro-hero h1 em{color:#83efef;font-style:normal}
+.electro-hero .lede{font-size:clamp(1.08rem,1.65vw,1.27rem);color:#e0ecf4;max-width:690px;line-height:1.65;margin:0 0 22px}
+.electro-hero .lede strong{color:#fff}
+.electro-hero .hero-actions{margin-top:25px;display:flex;flex-wrap:wrap;gap:12px}
+.electro-hero .button{color:#e7feff;border:1px solid rgba(165,232,240,.6);background:rgba(255,255,255,.08)}
+.electro-hero .button-primary{background:#d5fff9;border-color:#d5fff9;color:#073047}
+.electro-hero .button:hover{background:#fff;color:#092c47}
+.electro-diagram{min-height:375px;border:1px solid rgba(143,240,242,.3);border-radius:28px;background:linear-gradient(158deg,rgba(29,108,131,.40),rgba(2,15,38,.62));padding:22px;box-shadow:0 25px 70px rgba(0,0,0,.25)}
+.electro-diagram .diagram-title{font-size:.78rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#a8eff6;margin:0}
+.electro-diagram .people-map{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:35px 66px;align-items:center;justify-items:center;margin:35px auto 28px;width:min(100%,275px)}
+.electro-diagram .people-map::before{content:"";position:absolute;inset:12px 20px;border:1px dashed rgba(113,240,245,.54);border-radius:50%;transform:rotate(-24deg)}
+.electro-diagram .avatar{position:relative;z-index:1;display:grid;place-items:center;height:88px;width:88px;border:2px solid #84e6ed;border-radius:50%;background:#0c415b;color:#fff;font-size:1.45rem;font-weight:800;box-shadow:0 0 32px rgba(83,215,233,.18)}
+.electro-diagram .avatar:nth-child(2){background:#0f687a}.electro-diagram .avatar:nth-child(3){background:#07425b}
+.electro-diagram .diagram-center{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:1.3rem;background:#052c49;border:1px solid #83e2ea;border-radius:50%;height:52px;width:52px;display:grid;place-items:center;z-index:3;color:#a6fff7}
+.electro-diagram .signals{display:flex;flex-wrap:wrap;gap:7px;justify-content:center}.electro-diagram .signals span{font-size:.76rem;border:1px solid rgba(136,231,239,.34);padding:5px 11px;border-radius:30px;color:#dffaff}
+.electro-stats{display:flex;gap:14px;flex-wrap:wrap;margin-top:22px}.electro-stats span{font-size:.85rem;padding:5px 12px;border:1px solid rgba(129,236,238,.32);border-radius:30px;color:#e9fcff}
+.electro-nav{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:-38px;position:relative;z-index:2}
+.electro-nav a{background:var(--surface);box-shadow:var(--shadow-sm);border:1px solid var(--line);border-radius:18px;padding:24px;text-decoration:none;color:var(--heading);transition:transform .16s ease,box-shadow .16s ease}
+.electro-nav a:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}
+.electro-nav b{display:block;font-size:1.1rem}.electro-nav small{display:block;margin-top:8px;color:var(--muted);font-size:.89rem}.electro-nav .number{color:var(--accent);display:block;font-weight:800;font-size:.79rem;margin-bottom:10px;letter-spacing:.12em}
+.electro-note{background:var(--accent-soft);border-left:4px solid var(--accent);border-radius:12px;padding:20px 24px;margin:32px 0;color:var(--text)}.electro-note p{margin:4px 0}.electro-note strong{color:var(--heading)}
+.electro-how{display:grid;grid-template-columns:repeat(3,1fr);gap:19px}.electro-how .card{padding:26px}.electro-how .card h3{margin:0 0 7px;font-size:1.12rem}.electro-how .card p{margin:0;color:var(--muted)}
+.electro-filter{display:flex;flex-wrap:wrap;gap:13px;align-items:end;padding:19px 22px;border:1px solid var(--line);background:var(--surface);border-radius:18px;margin-bottom:20px}
+.electro-filter label{font-weight:700;font-size:.79rem;display:grid;gap:5px;min-width:155px;color:var(--muted)}
+.electro-filter input,.electro-filter select{border:1px solid var(--line-strong);border-radius:9px;padding:10px 12px;background:var(--bg);color:var(--text);min-height:44px}
+.electro-filter label:first-child{flex:1;min-width:235px}.electro-count{font-size:.9rem;color:var(--muted);margin-bottom:26px}
+.electro-topic-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.electro-topic{background:var(--surface);border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:var(--shadow-xs)}
+.electro-topic[hidden]{display:none}
+.electro-topic summary{cursor:pointer;padding:24px;list-style:none}.electro-topic summary::-webkit-details-marker{display:none}
+.electro-topic summary:focus-visible{outline-offset:-4px}
+.electro-topic summary::after{content:"+";float:right;color:var(--accent);font-size:1.7rem;line-height:1;position:relative;top:2px}
+.electro-topic[open] summary::after{content:"−"}
+.electro-topic .meta{font-weight:800;font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin:0 0 10px}
+.electro-topic h3{color:var(--heading);font-size:clamp(1.15rem,1.7vw,1.37rem);line-height:1.28;letter-spacing:-.025em;max-width:94%;margin:0 0 10px}
+.electro-topic .teaser{color:var(--muted);font-size:.92rem;margin:0}
+.electro-tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:15px}.electro-tags span{font-size:.71rem;padding:3px 10px;background:var(--bg-soft);border:1px solid var(--line);border-radius:30px;color:var(--text)}
+.electro-topic-body{border-top:1px solid var(--line);padding:22px 24px 24px;display:grid;gap:14px}
+.electro-topic-body p{margin:0;line-height:1.57;font-size:.92rem}
+.electro-topic-body strong{display:block;color:var(--heading);font-size:.8rem;text-transform:uppercase;letter-spacing:.075em;margin-bottom:4px}
+.electro-topic-body .ref-line{color:var(--muted);font-size:.86rem}.electro-topic-body .ref-line a{white-space:nowrap}
+.electro-refs{columns:2;column-gap:26px;margin:0;padding:0;list-style:none}.electro-refs li{break-inside:avoid;display:block;padding:14px 0;border-bottom:1px solid var(--line);font-size:.9rem}
+.electro-refs li b{color:var(--accent);margin-right:8px}.electro-refs li .ref-type{font-size:.79rem;color:var(--muted);display:block;padding-left:32px}
+.electro-footer-cta{background:linear-gradient(110deg,#052d4b,#0b6876);border-radius:24px;padding:38px 40px;color:#fff}
+.electro-footer-cta h2{color:#fff;margin:0 0 10px;font-size:clamp(1.5rem,3vw,2.6rem);letter-spacing:-.035em}
+.electro-footer-cta p{color:#e3f9fa;max-width:880px;margin:0 0 20px}
+.electro-footer-cta a{color:#fff}.electro-footer-cta .button{background:#d5fff9;color:#053047;border-color:#d5fff9}
+@media(max-width:960px){.electro-layout{grid-template-columns:1fr}.electro-diagram{max-width:430px}.electro-hero{padding:62px 0 75px}.electro-topic-list{grid-template-columns:1fr}.electro-how{grid-template-columns:1fr}.electro-nav{gap:10px}}
+@media(max-width:650px){.electro-nav{grid-template-columns:1fr;margin-top:-22px}.electro-hero h1{font-size:2.58rem}.electro-stats{display:none}.electro-refs{columns:1}.electro-filter label{width:100%}.electro-diagram{min-height:310px}.electro-diagram .people-map{margin:20px auto}.electro-diagram .avatar{height:70px;width:70px}.electro-footer-cta{padding:28px 24px}.electro-topic summary{padding:20px}.electro-topic-body{padding:20px}}
+@media(prefers-reduced-motion:reduce){.electro-nav a{transition:none}}
